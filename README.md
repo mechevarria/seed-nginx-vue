@@ -1,17 +1,16 @@
 # seed-nginx-vue
 
-Sample web application integrating bootstrap based coreui with [Vue](https://vuejs.org/). Initial scafold done with Vue CLI. The project can be deployed as a [docker](https://docs.docker.com/install/) container or pushed directly with a [buildpack](https://docs.cloudfoundry.org/buildpacks/nginx/index.html) to [SAP Cloud Platform](https://www.sap.com/products/cloud-platform.html)
+Seed web application integrating [Vue](https://vuejs.org/) with [Bootswatch](https://bootswatch.com). Initial scafold done with Vue CLI. The project can be deployed  directly with a [buildpack](https://docs.cloudfoundry.org/buildpacks/nginx/index.html) to [SAP Cloud Platform](https://www.sap.com/products/cloud-platform.html)
 
-![form](screenshots/form.png)
+![home](screenshots/home.png)
 
 ## Integration and Links
 
 * [Vue cli](https://cli.vuejs.org/) used to generate this project
 * [Style Guide](https://vuejs.org/v2/style-guide/) for Vue. Attempting to follow as best as possible`
-* [CoreUI Bootstrap](https://coreui.io) theme
+* [Bootswatch Flatly](https://bootswatch.com/flatly) theme
 * [Bootstrap-Vue](https://bootstrap-vue.org/) components
 * [Vue Router](https://router.vuejs.org/) for view management
-* [Vuex](https://vuex.vuejs.org/) for state management
 * [vue-mobile-detection](https://github.com/ajerez/vue-mobile-detection) for checking mobile state
 * [axios](https://github.com/axios/axios) as http client
 * [jsonplaceholder](https://jsonplaceholder.typicode.com/) for sample table data
@@ -31,20 +30,6 @@ npm run serve
 npm run build
 ```
 
-## Run as docker container
-
->You can create a public registry with security scanning for free at [Quay.io](https://quay.io)
-
-* Build and push the image with this script. You will have to edit the quay.io registry endpoint for the push command to work
-```bash
-docker-build.sh
-```
-
-* Run the continer with this script
-```bash
-docker-run.sh
-```
-
 * The server will be running on [http://localhost:4200](http://localhost:4200)
 
 ## Deploy to SAP Cloud Platform
@@ -59,16 +44,6 @@ docker-run.sh
 cf-login.sh
 ```
 
-![image.png](screenshots/cf-cockpit.png)
-
-### Docker
-
-* Deploy a docker container with the following command
-
-```bash
-cf-push-docker.sh
-```
-
 ### Buildpack
 
 * Push your code directly without the need of a container registry with the following commands (make sure you have done a build ahead of time)
@@ -78,7 +53,10 @@ cf-push-docker.sh
 cf-push-buildpack.sh
 ```
 
-* You will find a url to your deployed application in the SAP Cloud Foundry Cockpit.
+* You will find a url to your deployed application in the SAP Cloud Platform Cockpit or you can query with the `cli`
+```bash
+cf app seed-nginx-vue
+```
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
